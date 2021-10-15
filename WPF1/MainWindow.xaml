@@ -22,15 +22,19 @@
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="8*"></RowDefinition>
             </Grid.RowDefinitions>
-            <StackPanel Name="LeftPanel" Background="#23222a">
-                <TextBlock FontWeight="DemiBold" FontSize="22" VerticalAlignment="Center"
-                           HorizontalAlignment="Center" Foreground="Azure" Padding="10">
-                Test app
-                </TextBlock>
-            </StackPanel>
-            <StackPanel Name="LeftMenu" Grid.Row="1" Background="#23222a">
+            <Border Background="#23222a" CornerRadius="20,0,0,0">
+                <StackPanel Name="LeftPanel" Background="Transparent">
+                    <TextBlock FontWeight="DemiBold" FontSize="22" VerticalAlignment="Center"
+                              HorizontalAlignment="Center" Foreground="Azure" Padding="10">
+                    Test app
+                    </TextBlock>
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="1" Background="#23222a" CornerRadius="0,0,0,20">
+                <StackPanel Name="LeftMenu"  Background="Transparent">
 
-            </StackPanel>
+                </StackPanel>
+            </Border>
             <StackPanel Name="RightTopPanel" Grid.Column="1"
                         Background="#23222a" MouseLeftButtonDown="DragEvent"/>
             <StackPanel Grid.Column="2" Background="#23222a">
