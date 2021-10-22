@@ -20,19 +20,19 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="8*"></RowDefinition>
+                <RowDefinition Height="12*"></RowDefinition>
             </Grid.RowDefinitions>
             <Border Background="#23222a" CornerRadius="20,0,0,0">
-                <StackPanel Name="LeftPanel" Background="Transparent">
+                <StackPanel Name="LeftPanel" Background="Transparent" HorizontalAlignment="left" Margin="10,0,0,0">
                     <TextBlock FontWeight="DemiBold" FontSize="22" VerticalAlignment="Center"
-                              HorizontalAlignment="Center" Foreground="Azure" Padding="10">
+                              HorizontalAlignment="Center" Foreground="Azure" >
                     Test app
                     </TextBlock>
                 </StackPanel>
             </Border>
             <Border Grid.Row="1" Background="#23222a" CornerRadius="0,0,0,20">
-                <StackPanel Name="LeftMenu"  Background="Transparent">
-
+                <StackPanel Name="LeftMenu"  Background="#23222a">
+                    <uc:CustomRadioButton />
                 </StackPanel>
             </Border>
             <StackPanel Name="RightTopPanel" Grid.Column="1"

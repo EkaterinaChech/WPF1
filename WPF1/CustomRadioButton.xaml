@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="WPF1.CustomRadioButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF1"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type RadioButton}" x:Key="RadioButton">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton" >
+                        <Border Background="{TemplateBinding Background}">
+                        <BulletDecorator Height="50" Name="Bullet" Background="{TemplateBinding Background}" >
+                                <BulletDecorator.Bullet>
+                                    <Grid>
+                                        <Border Visibility="Hidden" />
+                                    </Grid>
+                                </BulletDecorator.Bullet>
+                                <TextBlock Margin="10,1,0,0" Foreground="Azure" 
+                                           FontSize="20" FontWeight="DemiBold" VerticalAlignment="Center">
+                                <ContentPresenter />
+                                </TextBlock>
+                            </BulletDecorator>
+                            </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" Value="#28272f"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="true">
+                                <Setter Property="Background" Value="#1e1d22"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <StackPanel Background="#23222a">
+        <RadioButton IsChecked="True" Style="{StaticResource RadioButton}" >Home</RadioButton>
+        <RadioButton Style="{StaticResource RadioButton}">View</RadioButton>
+        <RadioButton Style="{StaticResource RadioButton}">Settings</RadioButton>
+    </StackPanel>
+</UserControl>

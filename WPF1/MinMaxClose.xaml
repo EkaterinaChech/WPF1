@@ -30,7 +30,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-       
+
     </UserControl.Resources>
     <Grid Background="#23222a" >
         <Grid.ColumnDefinitions>
@@ -38,8 +38,12 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Button Style="{StaticResource Button}" Click="MinimizeClick">-</Button>
-        <Button Grid.Column="1" Style="{StaticResource Button}" Click="MaximizeClick">+</Button>
-        <Button Grid.Column="2" Style="{StaticResource Button}" Click="ExitClick">x</Button>
+        <Button Style="{StaticResource Button}" Click="MinimizeClick" Margin="0,11,0,0">–</Button>
+        <Button Grid.Column="1" Style="{StaticResource Button}" Click="MaximizeClick">
+            <Border BorderBrush="Azure" Height="12" Width="12" BorderThickness="1.5"
+                    Margin="0,5,0,0" CornerRadius="2"/>
+        </Button>
+        <Button Grid.Column="2" Style="{StaticResource Button}" Click="ExitClick"
+                FontSize="28" Margin="0,0,0,4">×</Button>
     </Grid>
 </UserControl>
