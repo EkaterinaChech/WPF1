@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="WPF1.UserControls.SettingsPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF1.UserControls"
+             mc:Ignorable="d">
+    <Grid>
+        <StackPanel Name="Theme" Height="30">
+            <ComboBox Name="ThemeBox" Text="Choose Theme..." SelectedValuePath="Content"
+                      SelectionChanged="ThemeBox_OnSelected">
+                <ComboBoxItem Name="Light" >Light</ComboBoxItem>
+                <ComboBoxItem Name="Dark">Dark</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+    </Grid>
+</UserControl>

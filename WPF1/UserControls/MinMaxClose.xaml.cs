@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPF1
+namespace WPF1.UserControls
 {
     /// <summary>
     /// Interaction logic for MinMaxClose.xaml

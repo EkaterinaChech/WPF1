@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF1"
-        xmlns:uc="clr-namespace:WPF1"
+        xmlns:uc="clr-namespace:WPF1.UserControls"
+        xmlns:userControls="clr-namespace:WPF1.UserControls"
         mc:Ignorable="d"
         WindowStyle="None"
         AllowsTransparency="true"
@@ -15,14 +16,15 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="24"/>
                 <ColumnDefinition Width="0.45*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="12*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Border Style="{DynamicResource DarkBorder}"
+            <Border Style="{DynamicResource TopBarBorder}"
                     CornerRadius="20,0,0,0">
                 <TextBlock FontWeight="DemiBold" FontSize="22" VerticalAlignment="Center" Margin="5,0,0,0"
                            HorizontalAlignment="Left" Style="{DynamicResource TextBlock}">
@@ -36,12 +38,18 @@
                 </StackPanel>
             </Border>
             <StackPanel Name="RightTopPanel" Grid.Column="1"
-                       Style="{DynamicResource DarkStackPanel}" MouseLeftButtonDown="DragEvent"/>
-            <StackPanel Grid.Column="2" Style="{DynamicResource DarkStackPanel}">
+                       Style="{DynamicResource TopBarStackPanel}"
+                       MouseLeftButtonDown="DragEvent"/>
+            <StackPanel Grid.Column="2" Style="{DynamicResource TopBarStackPanel}">
+                <Button Style="{DynamicResource ButtonMMC}" Margin="0,5,0,0"
+                        Content="{DynamicResource SettingsButton}"/>
+            </StackPanel>
+            <StackPanel Grid.Column="3" Style="{DynamicResource TopBarStackPanel}">
                 <uc:MinMaxClose />
             </StackPanel>
-            <StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" 
+            <StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" 
                         Name ="rightMainPanel" Style="{DynamicResource StackPanel}">
+                <uc:SettingsPage/>
             </StackPanel>
         </Grid>
     </Border>

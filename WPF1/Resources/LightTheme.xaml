@@ -5,9 +5,21 @@
     <SolidColorBrush x:Key="DarkBackgroundColor">#eeeeee</SolidColorBrush>
     <SolidColorBrush x:Key="HoverBackgroundColor">#cef2da</SolidColorBrush>
     <SolidColorBrush x:Key="SelectedBackgroundColor">#b0efc5</SolidColorBrush>
+    <SolidColorBrush x:Key="TopBarColor">#eeeeee</SolidColorBrush>
+
+    <Image x:Key="SettingsButton" Source="Images/DarkSettingsButton.png"
+           Name="SettingsButton" />
+
+    <Style x:Key="TopBarBorder" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource TopBarColor}"/>
+    </Style>
+    <Style x:Key="TopBarStackPanel" TargetType="StackPanel">
+        <Setter Property="Background" Value="{DynamicResource TopBarColor}"/>
+    </Style>
     <Style x:Key="MainBorder" TargetType="Border">
         <Setter Property="Background" Value="{DynamicResource BackgroundColor}"/>
     </Style>
+    
     <Style x:Key="DarkBorder" TargetType="Border">
         <Setter Property="Background" Value="{DynamicResource DarkBackgroundColor}"/>
     </Style>
