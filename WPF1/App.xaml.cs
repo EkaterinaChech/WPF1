@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System;
+using System.Diagnostics;
 using System.Windows.Threading;
 
 namespace WPF1
@@ -15,22 +16,17 @@ namespace WPF1
     /// </summary>
     public partial class App : Application
     {
-        public MainWindow window;
-        private void StartUp(object sender, StartupEventArgs e)
-        {
-            window = new MainWindow();
-            if (e.Args.Length == 1)
-            {
-                MessageBox.Show("Now opening file: \n\n" + e.Args[0]);
-            }
-
-            window.Show();
-        }
-
+        
         private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
             MessageBox.Show("Error: " + e.Exception.Message);
             e.Handled = true;
+        }
+
+        private void App_OnStartup(object sender, StartupEventArgs e)
+        {
+            new MainWindow().Show();
+
         }
     }
 }

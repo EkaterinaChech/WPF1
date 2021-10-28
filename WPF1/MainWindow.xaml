@@ -11,7 +11,7 @@
         Background="Transparent"
         Padding="10"
         Title="MainWindow" Height="450" Width="800">
-    <Border Background="#272537" CornerRadius="20">
+    <Border Style="{DynamicResource DarkTheme}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />

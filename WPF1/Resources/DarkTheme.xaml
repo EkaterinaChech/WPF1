@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="DarkTheme" TargetType="Border">
+        <Setter Property="Background" Value="#272537"/>
+        <Setter Property="CornerRadius" Value="20"/>
+    </Style>
+    <Style x:Key="DarkTopLeftGrid">
+       <!-- <Border Background="#23222a" CornerRadius="20,0,0,0">
+            <StackPanel Name="LeftPanel" Background="Transparent" HorizontalAlignment="left" Margin="10,0,0,0">
+                <TextBlock FontWeight="DemiBold" FontSize="22" VerticalAlignment="Center"
+                           HorizontalAlignment="Center" Foreground="Azure" >
+                    Test app
+                </TextBlock>
+            </StackPanel>
+        </Border>-->
+    </Style>
+</ResourceDictionary>
