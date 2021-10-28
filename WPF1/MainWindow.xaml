@@ -11,7 +11,7 @@
         Background="Transparent"
         Padding="10"
         Title="MainWindow" Height="450" Width="800">
-    <Border Style="{DynamicResource DarkTheme}">
+    <Border Style="{DynamicResource MainBorder}" CornerRadius="20">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -22,41 +22,26 @@
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="12*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Border Background="#23222a" CornerRadius="20,0,0,0">
-                <StackPanel Name="LeftPanel" Background="Transparent" HorizontalAlignment="left" Margin="10,0,0,0">
-                    <TextBlock FontWeight="DemiBold" FontSize="22" VerticalAlignment="Center"
-                              HorizontalAlignment="Center" Foreground="Azure" >
+            <Border Style="{DynamicResource DarkBorder}"
+                    CornerRadius="20,0,0,0">
+                <TextBlock FontWeight="DemiBold" FontSize="22" VerticalAlignment="Center" Margin="5,0,0,0"
+                           HorizontalAlignment="Left" Style="{DynamicResource TextBlock}">
                     Test app
                     </TextBlock>
-                </StackPanel>
+                
             </Border>
-            <Border Grid.Row="1" Background="#23222a" CornerRadius="0,0,0,20">
-                <StackPanel Name="LeftMenu"  Background="#23222a">
+            <Border Grid.Row="1" Style="{DynamicResource DarkBorder}" CornerRadius="0,0,0,20">
+                <StackPanel Name="LeftMenu"  Style="{DynamicResource DarkStackPanel}">
                     <uc:CustomRadioButton />
                 </StackPanel>
             </Border>
             <StackPanel Name="RightTopPanel" Grid.Column="1"
-                        Background="#23222a" MouseLeftButtonDown="DragEvent"/>
-            <StackPanel Grid.Column="2" Background="#23222a">
+                       Style="{DynamicResource DarkStackPanel}" MouseLeftButtonDown="DragEvent"/>
+            <StackPanel Grid.Column="2" Style="{DynamicResource DarkStackPanel}">
                 <uc:MinMaxClose />
             </StackPanel>
-            <StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Name ="rightMainPanel">
-                <StackPanel Width="250" HorizontalAlignment="Right">
-                    <Label Target="{Binding ElementName=txtName}" Foreground="AliceBlue">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="http://cdn1.iconfinder.com/data/icons/fatcow/16/bullet_green.png" />
-                            <AccessText Text="_Name:" FontWeight="DemiBold"/>
-                        </StackPanel>
-                    </Label>
-                    <TextBox Name="txtName" ToolTip="You name:" />
-                    <Label Target="{Binding ElementName=txtMail}" Foreground="AliceBlue">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="http://cdn1.iconfinder.com/data/icons/fatcow/16/bullet_blue.png" />
-                            <AccessText Text="_Mail:" FontWeight="DemiBold" />
-                        </StackPanel>
-                    </Label>
-                    <TextBox Name="txtMail" ToolTip="your Email:" />
-                </StackPanel>
+            <StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" 
+                        Name ="rightMainPanel" Style="{DynamicResource StackPanel}">
             </StackPanel>
         </Grid>
     </Border>

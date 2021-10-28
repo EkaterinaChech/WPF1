@@ -1,12 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <!--<x:Static x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}" Member="local:Constants.scrollBarWidth" MemberType="{x:Type sys:Double}"></x:Static>-->
-    <SolidColorBrush x:Key="TextColor">Azure</SolidColorBrush>
-    <SolidColorBrush x:Key="BackgroundColor">#272537</SolidColorBrush>
-    <SolidColorBrush x:Key="DarkBackgroundColor">#23222a</SolidColorBrush>
-    <SolidColorBrush x:Key="HoverBackgroundColor">#28272f</SolidColorBrush>
-    <SolidColorBrush x:Key="SelectedBackgroundColor">#1e1d22</SolidColorBrush>
-
+    <SolidColorBrush x:Key="TextColor">#203d3f</SolidColorBrush>
+    <SolidColorBrush x:Key="BackgroundColor">#f3f6f4</SolidColorBrush>
+    <SolidColorBrush x:Key="DarkBackgroundColor">#eeeeee</SolidColorBrush>
+    <SolidColorBrush x:Key="HoverBackgroundColor">#cef2da</SolidColorBrush>
+    <SolidColorBrush x:Key="SelectedBackgroundColor">#b0efc5</SolidColorBrush>
     <Style x:Key="MainBorder" TargetType="Border">
         <Setter Property="Background" Value="{DynamicResource BackgroundColor}"/>
     </Style>

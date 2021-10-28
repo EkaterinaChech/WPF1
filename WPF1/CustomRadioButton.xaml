@@ -6,10 +6,7 @@
              xmlns:local="clr-namespace:WPF1"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.Resources>
-        
-    </UserControl.Resources>
-    <StackPanel Background="#23222a">
+    <StackPanel>
         <RadioButton IsChecked="True" Style="{DynamicResource RadioButton}" >Home</RadioButton>
         <RadioButton Style="{DynamicResource RadioButton}">View</RadioButton>
         <RadioButton Style="{DynamicResource RadioButton}">Settings</RadioButton>
