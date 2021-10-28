@@ -18,8 +18,9 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="border" BorderThickness="0" BorderBrush="Transparent" Background="{TemplateBinding Background}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Border Name="border" BorderThickness="0" BorderBrush="Transparent" 
+                                Background="{TemplateBinding Background}" VerticalAlignment="Stretch">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -30,7 +31,13 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
+        <Style TargetType="Border" x:Key="BorderStyle">
+            <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#1e1d22" />
+            </Trigger>
+            </Style.Triggers>
+        </Style>
     </UserControl.Resources>
     <Grid Background="#23222a" >
         <Grid.ColumnDefinitions>
@@ -38,12 +45,23 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Button Style="{StaticResource Button}" Click="MinimizeClick" Margin="0,11,0,0">–</Button>
-        <Button Grid.Column="1" Style="{StaticResource Button}" Click="MaximizeClick">
-            <Border BorderBrush="Azure" Height="12" Width="12" BorderThickness="1.5"
-                    Margin="0,5,0,0" CornerRadius="2"/>
-        </Button>
-        <Button Grid.Column="2" Style="{StaticResource Button}" Click="ExitClick"
-                FontSize="28" Margin="0,0,0,4">×</Button>
+        <Border Style="{StaticResource BorderStyle}">
+            <Button Style="{StaticResource Button}" Click="MinimizeClick" Height="51" 
+                    VerticalAlignment="Top" Margin="0,-11,0,0" >_</Button>
+        </Border>
+        <Border Grid.Column="1" Style="{StaticResource BorderStyle}">
+            <Button Style="{StaticResource Button}" Click="MaximizeClick">
+                <Border BorderBrush="Azure" Height="12" Width="12" BorderThickness="1.5"
+                        CornerRadius="2"/>
+            </Button>
+        </Border>
+        <Border Grid.Column="2" Style="{StaticResource BorderStyle}">
+            <Button Style="{StaticResource Button}" Click="ExitClick"
+                    FontSize="28" Margin="0,-5,0,0">×</Button>
+        </Border>
+
+                
+        
+        
     </Grid>
 </UserControl>
