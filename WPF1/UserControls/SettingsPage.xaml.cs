@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,6 @@ namespace WPF1.UserControls
     /// </summary>
     public partial class SettingsPage : UserControl
     {
-        public List<string> Themes = new List<string> {"Light", "Dark"};
         public SettingsPage()
         {
             InitializeComponent();
@@ -29,11 +29,23 @@ namespace WPF1.UserControls
 
         private void ThemeBox_OnSelected(object sender, RoutedEventArgs e)
         {
-            string Theme = ThemeBox.SelectedValue.ToString();
-            var URI = new Uri($"\\Resources\\{Theme}Theme.xaml",UriKind.Relative);
+            string theme = ThemeBox.SelectedValue.ToString();
+            var URI = new Uri($"\\Resources\\{theme}Theme.xaml",UriKind.Relative);
             ResourceDictionary resourceDict = Application.LoadComponent(URI) as ResourceDictionary;
             Application.Current.Resources.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resourceDict);
+
+            UpdateLaunchSettingsTheme(theme);
+
+        }
+
+        private void UpdateLaunchSettingsTheme(string theme)
+        {
+            string json = File.ReadAllText(App.LaunchSettingsPATH);
+            dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+            jsonObj["Theme"] = theme;
+            string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+            File.WriteAllText(App.LaunchSettingsPATH, output);
         }
     }
 }
