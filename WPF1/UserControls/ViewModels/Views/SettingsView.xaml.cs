@@ -14,23 +14,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPF1.UserControls
+namespace WPF1.UserControls.ViewModels.Views
 {
     /// <summary>
-    /// Interaction logic for SettingsPage.xaml
+    /// Interaction logic for SettingsView.xaml
     /// </summary>
-    public partial class SettingsPage : UserControl
+    public partial class SettingsView : UserControl
     {
-        public SettingsPage()
+        public SettingsView()
         {
             InitializeComponent();
         }
-
-
         private void ThemeBox_OnSelected(object sender, RoutedEventArgs e)
         {
             string theme = ThemeBox.SelectedValue.ToString();
-            var URI = new Uri($"\\Resources\\{theme}Theme.xaml",UriKind.Relative);
+            var URI = new Uri($"\\Resources\\{theme}Theme.xaml", UriKind.Relative);
             ResourceDictionary resourceDict = Application.LoadComponent(URI) as ResourceDictionary;
             Application.Current.Resources.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resourceDict);
