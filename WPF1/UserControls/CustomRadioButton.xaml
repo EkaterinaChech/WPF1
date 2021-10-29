@@ -3,13 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:models="clr-namespace:WPF1.UserControls.ViewModels.Models"
              xmlns:local="clr-namespace:WPF1"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel>
-        <RadioButton IsChecked="True" Style="{DynamicResource RadioButtonStyle}">Home</RadioButton>
+    <StackPanel Name="TabsStackPanel" >
+        <RadioButton 
+            IsChecked="True" 
+            Style="{DynamicResource RadioButtonStyle}"
+            Command="{Binding (models:RelayCommand.HomeViewCommand)}">Home</RadioButton>
         <RadioButton Style="{DynamicResource RadioButtonStyle}">View</RadioButton>
-        <RadioButton Style="{DynamicResource RadioButtonStyle}">Settings</RadioButton>
 
     </StackPanel>
 </UserControl>

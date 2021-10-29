@@ -6,13 +6,19 @@
         xmlns:local="clr-namespace:WPF1"
         xmlns:uc="clr-namespace:WPF1.UserControls"
         xmlns:userControls="clr-namespace:WPF1.UserControls"
+        xmlns:models="clr-namespace:WPF1.UserControls.ViewModels.Models"
         mc:Ignorable="d"
         WindowStyle="None"
         AllowsTransparency="true"
         Background="Transparent"
         Padding="10"
         Title="MainWindow" Height="450" Width="800">
-    <Border Style="{DynamicResource MainBorder}" CornerRadius="20">
+    <Window.DataContext>
+        <models:MainViewModel/>
+    </Window.DataContext>
+    <Border 
+        Style="{DynamicResource MainBorder}" 
+        CornerRadius="20">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -24,33 +30,56 @@
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="12*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Border Style="{DynamicResource TopBarBorder}"
-                    CornerRadius="20,0,0,0">
-                <TextBlock FontWeight="DemiBold" FontSize="22" VerticalAlignment="Center" Margin="5,0,0,0"
-                           HorizontalAlignment="Left" Style="{DynamicResource TextBlock}">
+            <Border 
+                Style="{DynamicResource TopBarBorder}"
+                CornerRadius="20,0,0,0">
+                <TextBlock 
+                    FontWeight="DemiBold" 
+                    FontSize="22" 
+                    VerticalAlignment="Center" 
+                    Margin="5,0,0,0"
+                    HorizontalAlignment="Left" 
+                    Style="{DynamicResource TextBlock}">
                     Test app
-                    </TextBlock>
-                
+                </TextBlock>
+
             </Border>
-            <Border Grid.Row="1" Style="{DynamicResource DarkBorder}" CornerRadius="0,0,0,20">
-                <StackPanel Name="LeftMenu"  Style="{DynamicResource DarkStackPanel}">
+            <Border 
+                Grid.Row="1" 
+                Style="{DynamicResource DarkBorder}" 
+                CornerRadius="0,0,0,20">
+                <StackPanel 
+                    Name="LeftMenu"  
+                    Style="{DynamicResource DarkStackPanel}">
                     <uc:CustomRadioButton />
                 </StackPanel>
             </Border>
-            <StackPanel Name="RightTopPanel" Grid.Column="1"
-                       Style="{DynamicResource TopBarStackPanel}"
-                       MouseLeftButtonDown="DragEvent"/>
-            <StackPanel Grid.Column="2" Style="{DynamicResource TopBarStackPanel}">
-                <Button Style="{DynamicResource ButtonMMC}" Margin="0,5,0,0"
-                        Content="{DynamicResource SettingsButton}"/>
+            <StackPanel 
+                Name="RightTopPanel" 
+                Grid.Column="1"
+                Style="{DynamicResource TopBarStackPanel}"
+                MouseLeftButtonDown="DragEvent"/>
+            <StackPanel 
+                Grid.Column="2" 
+                Style="{DynamicResource TopBarStackPanel}">
+                <Button Name="Settings"
+                    Style="{DynamicResource ButtonMMC}" 
+                    Margin="0,5,0,0"
+                    Content="{DynamicResource SettingsButton}"
+                    Command="{Binding SettingsViewCommand}"/>
             </StackPanel>
-            <StackPanel Grid.Column="3" Style="{DynamicResource TopBarStackPanel}">
+            <StackPanel 
+                Grid.Column="3" 
+                Style="{DynamicResource TopBarStackPanel}">
                 <uc:MinMaxClose />
             </StackPanel>
-            <StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" 
-                        Name ="rightMainPanel" Style="{DynamicResource StackPanel}">
-                <uc:SettingsPage/>
-            </StackPanel>
+            <ContentControl
+                Grid.Column="1" 
+                Grid.Row="1" 
+                Grid.ColumnSpan="3" 
+                Name ="rightMainPanel" 
+                Content="{Binding CurrentView}"
+                />
         </Grid>
     </Border>
 </Window>

@@ -58,7 +58,7 @@
         </Setter>
     </Style>
 
-    <Style TargetType="Border" x:Key="BorderStyle">
+    <Style TargetType="Border" x:Key="ButtonBorderStyle">
         <Setter Property="Background" Value="Transparent"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="true">

@@ -7,10 +7,11 @@ using Newtonsoft.Json.Linq;
 
 namespace WPF1
 {
-
+    
     public partial class App : Application
     {
         private static string Theme = "Theme";
+        public static string Style;
         public static string LaunchSettingsPATH = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent + "\\Properties\\launchSettings.json";
 
         private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
@@ -27,6 +28,7 @@ namespace WPF1
             JObject o = (JObject)JToken.ReadFrom(new JsonTextReader(reader));
             reader.Close();
             string theme = (string)o[Theme];
+            Style = theme;
             Current.Resources.MergedDictionaries.Add(
                     LoadComponent(new Uri($"\\Resources\\{theme}Theme.xaml", UriKind.Relative)) as ResourceDictionary);
 
