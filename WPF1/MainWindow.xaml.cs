@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,9 +23,12 @@ namespace WPF1
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<string> Themes;
         public MainWindow()
         {
+            Themes = GetThemeList();
             InitializeComponent();
+            SettingsBox.ItemsSource = typeof(Colors).GetProperties();
         }
         private void DragEvent(object sender, EventArgs e)
         {
@@ -35,5 +39,13 @@ namespace WPF1
             DragMove();
         }
 
+        public List<string> GetThemeList()
+        {
+            if (Themes != null)
+                return Themes;
+
+            Themes = new List<string>();
+            var files = Directory.GetFiles(App.LaunchSettingsPATH);
+        }
     }
 }
