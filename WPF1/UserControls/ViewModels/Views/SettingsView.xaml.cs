@@ -28,9 +28,15 @@ namespace WPF1.UserControls.ViewModels.Views
         private void ThemeBox_OnSelected(object sender, RoutedEventArgs e)
         {
             string theme = ThemeBox.SelectedValue.ToString();
-            var URI = new Uri($"\\Resources\\{theme}Theme.xaml", UriKind.Relative);
+            var URI = new Uri($"\\Resources\\Themes\\{theme}Theme.xaml", UriKind.Relative);
             ResourceDictionary resourceDict = Application.LoadComponent(URI) as ResourceDictionary;
-            Application.Current.Resources.Clear();
+            /*var tempDictionary = Application.Current.Resources.MergedDictionaries
+                .Where(o => o.Source.ToString()== $"\\Resources\\Themes\\{theme}Theme.xaml");*/
+            //Application.Current.Resources.Clear();
+            //Application.Current.Resources.MergedDictionaries.Remove(tempDictionary as ResourceDictionary);
+            //ResourceDictionary removeItem = Application.Current.Resources.MergedDictionaries.Last();
+            //Application.Current.Resources.MergedDictionaries.Remove(removeItem);
+            Application.Current.Resources.MergedDictionaries.RemoveAt(Application.Current.Resources.MergedDictionaries.Count-1);
             Application.Current.Resources.MergedDictionaries.Add(resourceDict);
 
             UpdateLaunchSettingsTheme(theme);

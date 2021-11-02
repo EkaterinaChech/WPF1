@@ -8,7 +8,7 @@
     <SolidColorBrush x:Key="SelectedBackgroundColor">#1e1d22</SolidColorBrush>
     <SolidColorBrush x:Key="TopBarColor">#23222a</SolidColorBrush>
 
-    <Image x:Key="SettingsButton" Source="Images/LightSettingsButton.png"
+    <Image x:Key="SettingsButton" Source="../Images/LightSettingsButton.png"
            Name="SettingsButton" />
 
     <Style x:Key="TopBarBorder" TargetType="Border">

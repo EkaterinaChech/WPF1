@@ -35,9 +35,5 @@ namespace WPF1
             DragMove();
         }
 
-        private void Settings_OnClick(object sender, RoutedEventArgs e)
-        {
-            
-        }
     }
 }

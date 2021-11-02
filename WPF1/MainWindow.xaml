@@ -51,7 +51,14 @@
                 <StackPanel 
                     Name="LeftMenu"  
                     Style="{DynamicResource DarkStackPanel}">
-                    <uc:CustomRadioButton />
+                    <RadioButton 
+                        IsChecked="True" 
+                        Style="{DynamicResource RadioButtonStyle}"
+                        Command="{Binding HomeViewCommand}">Home</RadioButton>
+                    <RadioButton 
+                        Style="{DynamicResource RadioButtonStyle}"
+                        Command="{Binding ViewViewCommand}">View</RadioButton>
+
                 </StackPanel>
             </Border>
             <StackPanel 

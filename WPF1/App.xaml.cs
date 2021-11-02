@@ -22,7 +22,7 @@ namespace WPF1
 
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
-
+            
             StreamReader reader = File.OpenText(LaunchSettingsPATH);
 
             JObject o = (JObject)JToken.ReadFrom(new JsonTextReader(reader));
@@ -30,7 +30,7 @@ namespace WPF1
             string theme = (string)o[Theme];
             Style = theme;
             Current.Resources.MergedDictionaries.Add(
-                    LoadComponent(new Uri($"\\Resources\\{theme}Theme.xaml", UriKind.Relative)) as ResourceDictionary);
+                    LoadComponent(new Uri($"\\Resources\\Themes\\{theme}Theme.xaml", UriKind.Relative)) as ResourceDictionary);
 
             new MainWindow().Show();
 

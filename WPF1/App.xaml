@@ -13,7 +13,7 @@
             <ResourceDictionary.MergedDictionaries>
 
                 <ResourceDictionary Source="Resources/ButtonStyles.xaml"/>
-                <ResourceDictionary Source="Resources/LightTheme.xaml"/>
+                <ResourceDictionary Source="Resources/Themes/LightTheme.xaml"/>
 
             </ResourceDictionary.MergedDictionaries>
 
@@ -23,6 +23,9 @@
 
             <DataTemplate DataType="{x:Type models:SettingsViewModel}">
                 <view:SettingsView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type models:ViewViewModel}">
+                <view:ViewPage/>
             </DataTemplate>
 
         </ResourceDictionary>

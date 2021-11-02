@@ -14,9 +14,39 @@ namespace WPF1.UserControls.ViewModels.Models
     {
         public HomeViewModel HomeVM;
         public SettingsViewModel SettingsVM;
+        public ViewViewModel ViewVM;
 
-        public RelayCommand HomeViewCommand;
-        public RelayCommand SettingsViewCommand;
+        private RelayCommand _homeViewCommand;
+        private RelayCommand _settingsViewCommand;
+        private RelayCommand _viewViewCommand;
+
+        public RelayCommand HomeViewCommand
+        {
+            get
+            {
+                return _homeViewCommand ??
+                       (new RelayCommand(o => { CurrentView = HomeVM; }));
+            }
+        }
+
+        public RelayCommand SettingsViewCommand
+        {
+            get
+            {
+                return _settingsViewCommand ??
+                       (new RelayCommand(o => { CurrentView = SettingsVM; }));
+            }
+        }
+
+        public RelayCommand ViewViewCommand
+        {
+
+            get
+            {
+                return _viewViewCommand ??
+                       (new RelayCommand(o => { CurrentView = ViewVM; }));
+            }
+        }
 
         private object _currentView;
 
@@ -33,17 +63,10 @@ namespace WPF1.UserControls.ViewModels.Models
         public MainViewModel()
         {
             HomeVM = new HomeViewModel();
+            SettingsVM = new SettingsViewModel();
+            ViewVM = new ViewViewModel();
             CurrentView = HomeVM;
 
-            HomeViewCommand = new RelayCommand(o =>
-            {
-                CurrentView = HomeVM;
-            });
-
-            SettingsViewCommand = new RelayCommand(o =>
-            {
-                CurrentView = SettingsVM;
-            });
         }
 
     }
