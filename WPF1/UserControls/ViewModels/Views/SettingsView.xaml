@@ -4,14 +4,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPF1.UserControls.ViewModels.Views"
+             xmlns:main="clr-namespace:WPF1"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <UserControl.DataContext>
+        <main:MainWindow/>
+    </UserControl.DataContext>
+            <Grid>
         <StackPanel Name="Theme" Height="30">
-            <ComboBox Name="ThemeBox" Text="Choose Theme..." SelectedValuePath="Content"
-                      SelectionChanged="ThemeBox_OnSelected">
-                <ComboBoxItem Name="Light" >Light</ComboBoxItem>
-                <ComboBoxItem Name="Dark">Dark</ComboBoxItem>
+            <ComboBox 
+                Name="ThemeBox" 
+                ItemsSource="{Binding Themes}"
+                Text="Choose Theme..." 
+                SelectedValuePath="Content"
+                SelectionChanged="ThemeBox_OnSelected">
             </ComboBox>
         </StackPanel>
     </Grid>
