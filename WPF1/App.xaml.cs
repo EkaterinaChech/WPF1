@@ -7,12 +7,18 @@ using Newtonsoft.Json.Linq;
 
 namespace WPF1
 {
-    
     public partial class App : Application
     {
         private static string Theme = "Theme";
         public static string Style;
-        public static string LaunchSettingsPATH = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent + "\\Properties\\launchSettings.json";
+
+        public static string LaunchSettingsPATH = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent +
+                                                  "\\Properties\\launchSettings.json";
+
+        public static string ResourcesPATH =
+            Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent + "\\Resources";
+
+        public static Window MainWindow;
 
         private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
@@ -22,18 +28,17 @@ namespace WPF1
 
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
-            
             StreamReader reader = File.OpenText(LaunchSettingsPATH);
 
-            JObject o = (JObject)JToken.ReadFrom(new JsonTextReader(reader));
+            JObject o = (JObject) JToken.ReadFrom(new JsonTextReader(reader));
             reader.Close();
-            string theme = (string)o[Theme];
+            string theme = (string) o[Theme];
             Style = theme;
             Current.Resources.MergedDictionaries.Add(
-                    LoadComponent(new Uri($"\\Resources\\Themes\\{theme}Theme.xaml", UriKind.Relative)) as ResourceDictionary);
+                LoadComponent(new Uri($"\\Resources\\Themes\\{theme}.xaml", UriKind.Relative)) as ResourceDictionary);
 
-            new MainWindow().Show();
-
+            MainWindow = new MainWindow();
+            MainWindow.Show();
         }
     }
 }

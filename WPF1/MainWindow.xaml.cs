@@ -23,19 +23,23 @@ namespace WPF1
     /// </summary>
     public partial class MainWindow : Window
     {
-        private List<string> Themes;
+
+        public List<string> Themes { get; set; }
+
         public MainWindow()
         {
             Themes = GetThemeList();
             InitializeComponent();
-            SettingsBox.ItemsSource = typeof(Colors).GetProperties();
+            //SettingsBox.ItemsSource = Themes;
         }
+
         private void DragEvent(object sender, EventArgs e)
         {
             if (WindowState == WindowState.Maximized)
             {
                 WindowState = WindowState.Normal;
             }
+
             DragMove();
         }
 
@@ -45,7 +49,14 @@ namespace WPF1
                 return Themes;
 
             Themes = new List<string>();
-            var files = Directory.GetFiles(App.LaunchSettingsPATH);
+            var files = Directory.GetFiles(App.ResourcesPATH + "\\Themes");
+            List<string> result = new List<string>();
+            foreach (var name in files)
+            {
+                var split = name.Split('\\', '.');
+                result.Add(split[split.Length-2]);
+            }
+            return result;
         }
     }
 }

@@ -8,25 +8,33 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="RadioButton">
-                    <Border Name="RadioButtonBorder"  Background="{DynamicResource DarkBackgroundColor}">
+                    <Border Name="RadioButtonBorder" 
+                            Background="{DynamicResource DarkBackgroundColor}">
                         <BulletDecorator Height="50">
                             <BulletDecorator.Bullet>
                                 <Grid>
                                     <Border Visibility="Hidden" />
                                 </Grid>
                             </BulletDecorator.Bullet>
-                            <TextBlock Margin="10,1,0,0" Foreground="{DynamicResource TextColor}" 
-                                       FontSize="20" FontWeight="DemiBold" VerticalAlignment="Center">
+                            <TextBlock Margin="10,1,0,0" 
+                                       Foreground="{DynamicResource TextColor}" 
+                                       FontSize="20" 
+                                       FontWeight="DemiBold"
+                                       VerticalAlignment="Center">
                                 <ContentPresenter />
                             </TextBlock>
                         </BulletDecorator>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="RadioButtonBorder" Property="Background" Value="{DynamicResource SelectedBackgroundColor}" />
+                            <Setter TargetName="RadioButtonBorder" 
+                                    Property="Background" 
+                                    Value="{DynamicResource SelectedBackgroundColor}" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="RadioButtonBorder" Property="Background" Value="{DynamicResource HoverBackgroundColor}" />
+                            <Setter TargetName="RadioButtonBorder" 
+                                    Property="Background" 
+                                    Value="{DynamicResource HoverBackgroundColor}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -35,18 +43,24 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type Button}" x:Key="ButtonMMC">
+    <Style x:Key="ButtonMMC" TargetType="Button" >
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="Foreground" Value="{DynamicResource TextColor}" />
         <Setter Property="FontSize" Value="20" />
-        <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
-        <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Name="border" BorderThickness="0" BorderBrush="Transparent" 
-                            VerticalAlignment="Stretch">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Border Name="border" 
+                            BorderThickness="0" 
+                            BorderBrush="Transparent" 
+                            VerticalAlignment="Stretch"
+                            Background="Transparent">
+                        <ContentPresenter 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -58,21 +72,65 @@
         </Setter>
     </Style>
 
-    <Style TargetType="Border" x:Key="ButtonBorderStyle">
+    <Style x:Key="ButtonBorderStyle" TargetType="Border">
         <Setter Property="Background" Value="Transparent"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
-                <Setter Property="Background" Value="{DynamicResource SelectedBackgroundColor}" />
+                <Setter Property="Background" 
+                        Value="{DynamicResource SelectedBackgroundColor}" />
             </Trigger>
         </Style.Triggers>
     </Style>
 
-    <Style TargetType="Border" x:Key="RadioBorderStyle">
-        <Setter Property="Background" Value="{DynamicResource DarkBackgroundColor}"/>
+    <Style x:Key="RadioBorderStyle" TargetType="Border">
+        <Setter Property="Background" 
+                Value="{DynamicResource DarkBackgroundColor}"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
-                <Setter Property="Background" Value="{DynamicResource HoverBackgroundColor}" />
+                <Setter Property="Background" 
+                        Value="{DynamicResource HoverBackgroundColor}" />
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <Style x:Key="SettingsButtonStyle" TargetType="RadioButton">
+        <Setter Property="Background" Value="{DynamicResource HoverBackgroundColor}"/>
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border Name="RadioButtonBorder"  
+                            Background="Transparent">
+                        <BulletDecorator Height="50">
+                            <BulletDecorator.Bullet>
+                                <Grid>
+                                    <Border Visibility="Hidden" />
+                                </Grid>
+                            </BulletDecorator.Bullet>
+                            <ContentPresenter 
+                                HorizontalAlignment="Center" 
+                                VerticalAlignment="Center" 
+                                Margin="0,0,0,15"/>
+                        </BulletDecorator>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="RadioButtonBorder" 
+                                    Property="Background" 
+                                    Value="{DynamicResource SelectedBackgroundColor}" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="RadioButtonBorder" 
+                                    Property="Background" 
+                                    Value="{DynamicResource SelectedBackgroundColor}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

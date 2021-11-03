@@ -1,0 +1,35 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="TextColor">#492c39</SolidColorBrush>
+    <SolidColorBrush x:Key="BackgroundColor">#fbf9fd</SolidColorBrush>
+    <SolidColorBrush x:Key="DarkBackgroundColor">#efe6f6</SolidColorBrush>
+    <SolidColorBrush x:Key="HoverBackgroundColor">#E3D3F0</SolidColorBrush>
+    <SolidColorBrush x:Key="SelectedBackgroundColor">#d7c0ea</SolidColorBrush>
+    <SolidColorBrush x:Key="TopBarColor">#E3D3F0</SolidColorBrush>
+
+    <Image x:Key="SettingsButton" Source="../Images/DarkSettingsButton.png"
+           Name="SettingsButton" />
+
+    <Style x:Key="TopBarBorder" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource TopBarColor}"/>
+    </Style>
+    <Style x:Key="TopBarStackPanel" TargetType="StackPanel">
+        <Setter Property="Background" Value="{DynamicResource TopBarColor}"/>
+    </Style>
+    <Style x:Key="MainBorder" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource BackgroundColor}"/>
+    </Style>
+    
+    <Style x:Key="DarkBorder" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource DarkBackgroundColor}"/>
+    </Style>
+    <Style x:Key="StackPanel" TargetType="StackPanel">
+        <Setter Property="Background" Value="{DynamicResource BackgroundColor}"/>
+    </Style>
+    <Style x:Key="DarkStackPanel" TargetType="StackPanel">
+        <Setter Property="Background" Value="{DynamicResource DarkBackgroundColor}"/>
+    </Style>
+    <Style x:Key="TextBlock" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
+    </Style>
+</ResourceDictionary>
